@@ -42,7 +42,7 @@ jobs:
     strategy:
       matrix:
         distro: [debian10]
-        mysql_initial: true
+        mysql_initial: [true]
 
     steps:
       - name: Check out the codebase.
