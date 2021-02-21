@@ -1,7 +1,7 @@
 Role Name
 =========
 
-Template
+Adds MySQL User and DB on Debian Buster
 
 Requirements
 ------------
@@ -22,7 +22,7 @@ Example Playbook
     - hosts: servers
       become: true
       roles:
-         - role: aminvakil.template
+         - role: aminvakil.mysql_add_user
 
 License
 -------
