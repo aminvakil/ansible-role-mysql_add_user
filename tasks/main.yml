@@ -24,3 +24,25 @@
       - result.rc == 0
       - '"No such" not in result.stdout'
     fail_msg: MySQL has not been installed, use aminvakil.mysql_initial to install MySQL first.
+
+- name: Include vault
+  include_vars: defaults/vault.yml
+  no_log: true
+
+- name: Create "{{ mysql_db_user }}" user
+  mysql_user:
+    login_user: root
+    login_password: "{{ mysql_root_password }}"
+    name: "{{ mysql_db_user }}"
+    password: "{{ mysql_db_password }}"
+    priv: "{{ mysql_db_user }}.*:ALL,GRANT"
+    host: "localhost"
+  no_log: true
+
+- name: Create "{{ mysql_db_user }}" database
+  mysql_db:
+    login_user: "{{ mysql_db_user }}"
+    login_password: "{{ mysql_db_password }}"
+    name: "{{ mysql_db_user }}"
+    state: present
+  no_log: true
