@@ -28,6 +28,7 @@
 - name: Include vault
   include_vars: defaults/vault.yml
   no_log: true
+  tags: default_vault
 
 - name: Create "{{ mysql_db_user }}" user
   mysql_user:
