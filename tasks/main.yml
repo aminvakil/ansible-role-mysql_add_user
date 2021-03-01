@@ -37,11 +37,13 @@
     owner: root
     group: mysql
     mode: '0640'
+  changed_when: "'molecule-idempotence-notest' not in ansible_skip_tags"
 
 - name: Restart mysql
   systemd:
     name: mysqld
     state: restarted
+  changed_when: "'molecule-idempotence-notest' not in ansible_skip_tags"
 
 - name: Create "{{ mysql_db_user }}" user
   mysql_user:
@@ -68,4 +70,5 @@
     owner: root
     group: mysql
     mode: '0640'
+  changed_when: "'molecule-idempotence-notest' not in ansible_skip_tags"
   notify: restart mysql
