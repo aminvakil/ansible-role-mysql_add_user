@@ -1,6 +1,6 @@
 ---
 galaxy_info:
-  author: Amin Vakil
+  author: aminvakil
   role_name: mysql_add_user
   description: Adds MySQL User and DB on Debian Buster
   license: GPL-3.0-only
